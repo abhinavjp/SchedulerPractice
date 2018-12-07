@@ -1,5 +1,6 @@
 ﻿using Hangfire;
 using Hangfire.Logging;
+using Hangfire.SqlServer;
 using System;
 
 namespace SchedulerPractice
@@ -10,7 +11,7 @@ namespace SchedulerPractice
         {
             Configuration();
             // Jobs
-            using (var server = new BackgroundJobServer(SetOptions()))
+            using (var server = new BackgroundJobServer(SetOptions(), new SqlServerStorage("HangfireConnection2")))
             {
                 Console.WriteLine("Hangfire Server started. Press any key to exit...");
                 BackgroundMethods();
@@ -35,13 +36,16 @@ namespace SchedulerPractice
         {
             GlobalConfiguration.Configuration
                   .UseColouredConsoleLogProvider()
-                  .UseSqlServerStorage("HangfireConnection");
+                  //.UseSqlServerStorage("HangfireConnection")
+                  .UseSqlServerStorage("HangfireConnection2")
+                  .UseSqlServerStorage("HangfireConnection3");
             LogProvider.SetCurrentLogProvider(null);
         }
 
         private static void BackgroundMethods()
         {
-            BackgroundJob.Enqueue(() => Console.WriteLine("Instant Background Methods"));
+            IBackgroundJobClient backgroundJobClient = new BackgroundJobClient();
+            backgroundJobClient.Enqueue(() => Console.WriteLine("Instant Background Methods"));
         }
 
         private static void DelayedBackgroubdJobs()
