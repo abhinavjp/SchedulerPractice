@@ -1,14 +1,14 @@
 ﻿using Hangfire;
-using SchedulerPractice.Models;
+using SchedulerPractice.Scheduler.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SchedulerPractice
+namespace SchedulerPractice.Scheduler
 {
-    public class SchedulerFactory : IDisposable
+    public class BackgroundSchedulerFactory : IDisposable
     {
         public List<BackgroundJobServerModel> BackgroundJobServers { get; set; }
 

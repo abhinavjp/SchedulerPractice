@@ -92,10 +92,11 @@
     <Compile Include="ErrorHandler\SmartResponse.cs" />
     <Compile Include="ErrorHandler\SmartResponseException.cs" />
     <Compile Include="ErrorHandler\SmartResponseHelper.cs" />
-    <Compile Include="Models\BackgroundJobServerModel.cs" />
+    <Compile Include="Scheduler\Models\BackgroundJobServerModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SchedulerFactory.cs" />
+    <Compile Include="Scheduler\BackgroundSchedulerFactory.cs" />
+    <Compile Include="Scheduler\RecurringJobFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

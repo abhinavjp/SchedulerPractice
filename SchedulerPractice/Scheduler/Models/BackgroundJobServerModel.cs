@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SchedulerPractice.Models
+namespace SchedulerPractice.Scheduler.Models
 {
     public class BackgroundJobServerModel
     {

@@ -1,4 +1,5 @@
 ﻿using Hangfire;
+using Hangfire.Common;
 using Hangfire.Logging;
 using Hangfire.SqlServer;
 using System;
@@ -11,15 +12,15 @@ namespace SchedulerPractice
         {
             Configuration();
             // Jobs
-            using (var server = new BackgroundJobServer(SetOptions(), new SqlServerStorage("HangfireConnection2")))
-            {
-                Console.WriteLine("Hangfire Server started. Press any key to exit...");
-                BackgroundMethods();
-                DelayedBackgroubdJobs();
-                RemoveRecurringJobs();
-                AddRecurringJobs();
+            //using (var server = new BackgroundJobServer(SetOptions(), new SqlServerStorage("HangfireConnection2")))
+            //{
+            Console.WriteLine("Hangfire Server started. Press any key to exit...");
+            //    //BackgroundMethods();
+            //    //DelayedBackgroubdJobs();
+            //    RemoveRecurringJobs();
+            AddRecurringJobs();
                 Console.ReadKey();
-            }
+            //}
 
             Console.ReadKey();
         }
@@ -36,9 +37,9 @@ namespace SchedulerPractice
         {
             GlobalConfiguration.Configuration
                   .UseColouredConsoleLogProvider()
-                  //.UseSqlServerStorage("HangfireConnection")
-                  .UseSqlServerStorage("HangfireConnection2")
-                  .UseSqlServerStorage("HangfireConnection3");
+                  .UseSqlServerStorage("HangfireConnection");
+                  //.UseSqlServerStorage("HangfireConnection2")
+                  //.UseSqlServerStorage("HangfireConnection3");
             LogProvider.SetCurrentLogProvider(null);
         }
 
@@ -55,12 +56,17 @@ namespace SchedulerPractice
 
         private static void AddRecurringJobs()
         {
-            RecurringJob.AddOrUpdate("ev-min-recur", () => Console.WriteLine("Recurring Background Methods"), Cron.Minutely);
+            //RecurringJob.AddOrUpdate("ev-min-recur", () => Console.WriteLine("Recurring Background Methods"), Cron.Minutely);
+            var jobManager = new RecurringJobManager(new SqlServerStorage("HangfireConnection"));
+            jobManager.AddOrUpdate("ev-min-recur",
+                Job.FromExpression(() => Console.WriteLine("Recurring Background Methods")),
+                Cron.Minutely());
         }
 
         private static void RemoveRecurringJobs()
         {
             RecurringJob.RemoveIfExists("Console.Write");
+            RecurringJob.RemoveIfExists("ev-min-recur");
         }
     }
 }
