@@ -66,6 +66,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -88,6 +89,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CacheHelper\Interfaces\ICacheHelper.cs" />
+    <Compile Include="CacheHelper\Models\CacheType.cs" />
+    <Compile Include="CacheHelper\Services\CacheHelperFactory.cs" />
+    <Compile Include="CacheHelper\Services\MemoryCacheHelper.cs" />
     <Compile Include="ConnectionManipulator\Interfaces\IConnectionStringBuilder.cs" />
     <Compile Include="ConnectionManipulator\Interfaces\IDatabaseConnectionServiceModel.cs" />
     <Compile Include="ConnectionManipulator\Models\DatabaseConnectionServiceModel.cs" />
@@ -97,6 +102,15 @@
     <Compile Include="ConnectionManipulator\Services\DatabaseConnectionConfigurator.cs" />
     <Compile Include="ConnectionManipulator\Services\DatabaseConnectionUtils.cs" />
     <Compile Include="ConnectionManipulator\Services\SqlConnectionStringBuilder.cs" />
+    <Compile Include="CoreAuthenticationHelper\Interfaces\IUserSettingsServiceModel.cs" />
+    <Compile Include="CoreAuthenticationHelper\Interfaces\IUserSettingsViewModel.cs" />
+    <Compile Include="CoreAuthenticationHelper\Models\MasterSettingsServiceModel.cs" />
+    <Compile Include="CoreAuthenticationHelper\Models\TokenServiceModel.cs" />
+    <Compile Include="CoreAuthenticationHelper\Models\UserSettingsServiceModel.cs" />
+    <Compile Include="CoreAuthenticationHelper\Services\CacheAuthenticationService.cs" />
+    <Compile Include="CoreAuthenticationHelper\Services\MasterSettingsService.cs" />
+    <Compile Include="CoreAuthenticationHelper\Services\UserSettingsManipulatorService.cs" />
+    <Compile Include="CoreAuthenticationHelper\Services\UserSettingsService.cs" />
     <Compile Include="ErrorHandler\ErrorHandlerEnums.cs" />
     <Compile Include="ErrorHandler\ISmartResponse.cs" />
     <Compile Include="ErrorHandler\ISmartResponseGeneric.cs" />
@@ -115,6 +129,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
