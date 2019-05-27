@@ -25,5 +25,12 @@ namespace SchedulerPractice.CoreAuthenticationHelper.Models
         public string UserType { get; set; }
         public string PortalType { get; set; }
         public DateTime ExpiryDateTime { get; set; }
+        public bool IsAuthenticationBlocked { get; set; }
+        public string ErrorDisplayMessage { get; set; }
+        public string WarningDisplayMessage { get; set; }
+        public string InfoDisplayMessage { get; set; }
+        public DateTime AuthenticationBlockedOn { get; set; }
+        public AuthenticationBlockingType AuthenticationBlockingType { get; set; }
+        public decimal AuthenticationBlockedPeriod { get; set; }
     }
 }

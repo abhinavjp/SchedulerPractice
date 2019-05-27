@@ -42,6 +42,7 @@ namespace SchedulerPractice.CoreAuthenticationHelper.Services
         private static string GenerateUserSettingsKey(UserSettingsServiceModel userSettings)
         {
             var keyBuilder = new StringBuilder();
+            keyBuilder.Append(Constants.UserSettingsCacheName);
             if (userSettings.UserId != default)
             {
                 keyBuilder.Append($"_{userSettings.UserId}");

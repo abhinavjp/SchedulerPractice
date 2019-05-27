@@ -3,6 +3,7 @@ using SchedulerPractice.CacheHelper.Interfaces;
 using SchedulerPractice.CacheHelper.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SchedulerPractice.CacheHelper.Services
 {
@@ -46,6 +47,11 @@ namespace SchedulerPractice.CacheHelper.Services
             if (!_memoryCache.ContainsKey(key))
                 return default;
             return JsonConvert.DeserializeObject<T>(_memoryCache[key]);
+        }
+
+        public string[] GetCacheKeys()
+        {
+            return _memoryCache.Keys.ToArray();
         }
     }
 }

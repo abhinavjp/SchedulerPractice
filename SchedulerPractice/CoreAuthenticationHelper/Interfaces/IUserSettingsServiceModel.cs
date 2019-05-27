@@ -1,4 +1,6 @@
-﻿namespace SchedulerPractice.CoreAuthenticationHelper.Interfaces
+﻿using System;
+
+namespace SchedulerPractice.CoreAuthenticationHelper.Interfaces
 {
     public interface IUserSettingsServiceModel: IUserSettingsViewModel
     {
@@ -9,5 +11,8 @@
         bool IsCacheSet { get; set; }
         string UserEmail { get; set; }
         string Username { get; set; }
+        string ErrorDisplayMessage { get; set; }
+        string WarningDisplayMessage { get; set; }
+        string InfoDisplayMessage { get; set; }
     }
 }

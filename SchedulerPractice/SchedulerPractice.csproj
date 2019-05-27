@@ -104,9 +104,13 @@
     <Compile Include="ConnectionManipulator\Services\SqlConnectionStringBuilder.cs" />
     <Compile Include="CoreAuthenticationHelper\Interfaces\IUserSettingsServiceModel.cs" />
     <Compile Include="CoreAuthenticationHelper\Interfaces\IUserSettingsViewModel.cs" />
+    <Compile Include="CoreAuthenticationHelper\Models\AuthenticationBlockingDisplayDetailServiceModel.cs" />
+    <Compile Include="CoreAuthenticationHelper\Models\AuthenticationBlockingMessageType.cs" />
+    <Compile Include="CoreAuthenticationHelper\Models\Constants.cs" />
     <Compile Include="CoreAuthenticationHelper\Models\MasterSettingsServiceModel.cs" />
     <Compile Include="CoreAuthenticationHelper\Models\TokenServiceModel.cs" />
     <Compile Include="CoreAuthenticationHelper\Models\UserSettingsServiceModel.cs" />
+    <Compile Include="CoreAuthenticationHelper\Services\AuthenticationBlockingMessages.cs" />
     <Compile Include="CoreAuthenticationHelper\Services\CacheAuthenticationService.cs" />
     <Compile Include="CoreAuthenticationHelper\Services\MasterSettingsService.cs" />
     <Compile Include="CoreAuthenticationHelper\Services\UserSettingsManipulatorService.cs" />

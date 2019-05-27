@@ -1,4 +1,5 @@
 ﻿using System;
+using SchedulerPractice.CoreAuthenticationHelper.Models;
 
 namespace SchedulerPractice.CoreAuthenticationHelper.Interfaces
 {
@@ -17,5 +18,10 @@ namespace SchedulerPractice.CoreAuthenticationHelper.Interfaces
         string UserType { get; set; }
         string PortalType { get; set; }
         DateTime ExpiryDateTime { get; set; }
+        bool IsAuthenticationBlocked { get; set; }
+        DateTime AuthenticationBlockedOn { get; set; }
+        AuthenticationBlockingType AuthenticationBlockingType { get; set; }
+        decimal AuthenticationBlockedPeriod { get; set; }
+
     }
 }

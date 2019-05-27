@@ -7,5 +7,6 @@ namespace SchedulerPractice.CacheHelper.Interfaces
         CacheType CacheType { get; }
         void SetCache<T>(string key, T value);
         T GetCache<T>(string key);
+        string[] GetCacheKeys();
     }
 }
